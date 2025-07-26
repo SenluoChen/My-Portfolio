@@ -1,7 +1,10 @@
+
+
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: 	#bdeeff;
+  background-color: 	#ffffff;
   color: #333;
   text-align: center;
 }
@@ -59,7 +62,7 @@ body {
 }
 
 footer {
-  background-color: #f2f2f2;
+  background-color: #f5f5f7;
   padding: 1rem;
   font-size: 0.9rem;
   color: #777;
@@ -67,7 +70,7 @@ footer {
 
 .projects {
   background-color: 	#f5f5f7;
-  padding: 60px 20px;
+  padding: 40px 150px;
 }
 
 .projects h2 {
@@ -103,4 +106,79 @@ footer {
 
 .project a:hover {
   text-decoration: underline;
+}
+
+
+footer button {
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #0071e3; /* Apple 藍 */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+footer button:hover {
+  background-color: #005bb5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#contact-form {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  background: white;
+  padding: 32px 24px 24px 24px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  z-index: 1000;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#contact-form button[type="submit"] {
+  background-color: #0071e3;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#contact-form button[type="submit"]:hover {
+  background-color: #005bb5;
+}
+
+.cv-download {
+  text-align: center;
+  margin: 20px 0 70px;
+}
+
+.btn-cv {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cv:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }

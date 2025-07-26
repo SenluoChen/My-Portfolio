@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -7,12 +6,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arcos | Software Engineer</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    #contact-form {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      z-index: 1000;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #contact-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #close-form {
+      background: none;
+      color: #888;
+      border: none;
+      float: right;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
   <section class="hero">
     <h1>I'm Senluo.</h1>
-
   </section>
 
   <section class="about">
@@ -22,30 +62,50 @@
     I love clean code, smart design, and bringing ideas to life 💻</p>
   </section>
   
-<section class="projects">
-  <h2>My Works</h2>
-
-  <div class="project">
-    <h3>Meal Plan Optimizer</h3>
-    <p>A Python-based nutrition optimizer that generates weekly meal plans using AI and data analysis.</p>
-    <a href="https://github.com/your-username/meal-plan-optimizer" target="_blank">View on GitHub</a>
-  </div>
-
-  <div class="project">
-    <h3>Real Estate Finder</h3>
-    <p>A web app for Chinese-speaking clients to explore new housing projects in France.</p>
-    <a href="https://your-deploy-link.com" target="_blank">Visit Website</a>
-  </div>
-
-  <div class="project">
-    <h3>Personal Portfolio</h3>
-    <p>This very site, designed with pure HTML & CSS, to showcase my skills and personality.</p>
-    <a href="#" target="_blank">Live Demo</a>
-  </div>
+  <section class="cv-download">
+  <a href="assets/CV - senluo chen.pdf" download class="btn-cv">📄 Télécharger mon CV</a>
 </section>
+
+
+  <section class="projects">
+    <h2>My Works</h2>
+
+    <div class="project">
+      <h3>Basketball IQ</h3>
+      <p>A Python-based nutrition optimizer that generates weekly meal plans using AI and data analysis.</p>
+      <a href="https://github.com/your-username/meal-plan-optimizer" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>SmartCoach</h3>
+      <p>A web app for Chinese-speaking clients to explore new housing projects in France.</p>
+      <a href="https://your-deploy-link.com" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="project">
+      <h3>ReLivre</h3>
+      <p>This very site, designed with pure HTML & CSS, to showcase my skills and personality.</p>
+      <a href="#" target="_blank">Live Demo</a>
+    </div>
+  </section>
+
 
   <footer>
     <p>© 2025 Arcos</p>
+    <button onclick="document.getElementById('contact-form').style.display='block'">
+      Contacter moi
+    </button>
   </footer>
+
+  <!-- 聯絡表單彈窗 -->
+  <div id="contact-form">
+    <button id="close-form" onclick="document.getElementById('contact-form').style.display='none'">×</button>
+    <form action="https://formspree.io/f/xyzpwvvj" method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
 </body>
 </html>
