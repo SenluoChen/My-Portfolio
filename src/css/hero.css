@@ -1,0 +1,79 @@
+/* Hero & Section CSS extracted from inline styles */
+
+.hero-orb {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  margin: 0 0 20px 0;
+  background: radial-gradient(circle at 30% 30%, #38bdf8 0%, #0ea5e9 45%, #0b1220 70%);
+  box-shadow: 0 22px 48px rgba(14,165,233,0.25);
+}
+
+.section.hero-section {
+  padding-top: 64px;
+}
+
+.hero-title {
+  margin: 0 0 12px;
+  color: #f8fafc;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+  text-align: left;
+}
+
+.hero-bar {
+  width: 72px;
+  height: 2px;
+  background: rgba(148,163,184,0.35);
+  border: none;
+  margin: 0 0 32px 0;
+}
+
+.hero-text {
+  max-width: 820px;
+  color: #c7d3e0;
+  font-size: 17px;
+  line-height: 30px;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.hero-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+  margin-top: "10px";
+}
+
+.hero-pill {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #e7edf5;
+  background: rgba(148,163,184,0.12);
+  border: 1px solid rgba(148,163,184,0.22);
+}
+
+.hero-primary-btn {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: linear-gradient(90deg,#38bdf8,#0ea5e9);
+  color: #06111d;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}
+
+.hero-ghost-btn {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: transparent;
+  color: #e5eef8;
+  border: 1px solid rgba(148,163,184,0.25);
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}

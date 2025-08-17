@@ -7,6 +7,7 @@ const cardBase: React.CSSProperties = {
   position: "relative",
   borderRadius: 16,
   padding: 22,
+  paddingBottom: 28,
   textAlign: "left",
   height: "100%",
   display: "flex",
@@ -65,7 +66,7 @@ const desc: React.CSSProperties = {
   lineHeight: "26px",
 };
 
-const tagsRow: React.CSSProperties = { display: "flex", gap: 8, flexWrap: "wrap" };
+const tagsRow: React.CSSProperties = { display: "flex", gap: 8, flexWrap: "wrap", marginTop: 8 };
 const tag: React.CSSProperties = {
   fontSize: 12,
   padding: "6px 10px",
@@ -103,15 +104,12 @@ const focusRing: React.CSSProperties = {
 export default function ProjectCard({ project: p }: Props) {
   const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
+  // 移除 showActions 狀態，讓按鈕永遠顯示
   const primary = p.link || p.github;
-
-  const onActivate = () => {
-    if (primary) window.open(primary, "_blank", "noopener,noreferrer");
-  };
 
   return (
     <article
-      role={primary ? "button" : "group"}
+      role={"group"}
       tabIndex={0}
       aria-label={`${p.title} project`}
       style={{
@@ -122,19 +120,12 @@ export default function ProjectCard({ project: p }: Props) {
           : cardBase.boxShadow,
         borderColor: hover ? "rgba(56,189,248,0.45)" : (cardBase.border as string),
         ...(focus ? focusRing : {}),
-        cursor: primary ? "pointer" : "default",
+        cursor: "default",
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
-      onClick={onActivate}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onActivate();
-        }
-      }}
     >
       {/* 動態頂部重點條 */}
       <div
@@ -188,42 +179,71 @@ export default function ProjectCard({ project: p }: Props) {
 
       <div style={actions}>
         {p.link && (
-          <a
+          <ButtonLink
             href={p.link}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              ...btnBase,
-              background:
-                hover || focus
-                  ? "linear-gradient(90deg,#38bdf8,#0ea5e9)"
-                  : btnBase.background,
-              color: hover || focus ? "#06111d" : (btnBase.color as string),
-              transform: hover || focus ? "translateY(-1px)" : "translateY(0)",
-              boxShadow:
-                hover || focus
-                  ? "0 8px 18px rgba(56,189,248,0.35)"
-                  : "none",
-            }}
+            style={btnBase}
+            gradient={false}
+            animate={true}
           >
             Live
-          </a>
+          </ButtonLink>
         )}
         {p.github && (
-          <a
+          <ButtonLink
             href={p.github}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              ...btnBase,
-              borderColor: hover || focus ? "#38bdf8" : "rgba(148,163,184,0.25)",
-              transform: hover || focus ? "translateY(-1px)" : "translateY(0)",
-            }}
+            style={btnBase}
+            gradient={false}
+            animate={true}
           >
             GitHub
-          </a>
+          </ButtonLink>
+        )}
+        {p.behance && (
+          <ButtonLink
+            href={p.behance}
+            style={btnBase}
+            gradient={false}
+            animate={true}
+          >
+            Behance
+          </ButtonLink>
         )}
       </div>
     </article>
+  );
+}
+
+// 新增分離 hover 狀態的 ButtonLink 元件，並加上型別
+interface ButtonLinkProps {
+  href: string;
+  style: React.CSSProperties;
+  gradient: boolean;
+  animate?: boolean;
+  children: React.ReactNode;
+}
+function ButtonLink({ href, style, gradient, animate = true, children }: ButtonLinkProps) {
+  const [hover, setHover] = React.useState(false);
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      style={{
+        ...style,
+        background: gradient && hover ? "linear-gradient(90deg,#38bdf8,#0ea5e9)" : style.background,
+        color: gradient && hover ? "#06111d" : style.color,
+        borderColor: hover ? "#38bdf8" : style.borderColor,
+        filter: hover && animate ? "brightness(1.12)" : "none",
+        transform: hover && animate ? "translateY(-1px) scale(1.06)" : "translateY(0) scale(1)",
+        boxShadow: hover && animate ? "0 4px 16px rgba(56,189,248,0.18)" : "none",
+        transition: animate ? 'all 160ms cubic-bezier(.4,0,.2,1)' : undefined,
+      }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onMouseDown={e => { if (animate) e.currentTarget.style.transform = 'scale(0.96)'; }}
+      onMouseUp={e => { if (animate) e.currentTarget.style.transform = hover ? 'translateY(-1px) scale(1.06)' : 'translateY(0) scale(1)'; }}
+    >
+      {children}
+    </a>
   );
 }

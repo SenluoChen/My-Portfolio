@@ -1,0 +1,26 @@
+/* App container CSS extracted from inline styles */
+
+.app-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+   gap: 110px;
+}
+
+.app-main {
+  background: linear-gradient(180deg,#0b1220 0%, #101a2d 60%, #0b1220 100%);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #dbe2ea;
+  min-height: 100vh;
+  padding-bottom: 96px;
+  font-family: "Inter","Noto Sans TC","PingFang TC","Microsoft JhengHei","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.1px;
+  overflow-x: hidden;
+}

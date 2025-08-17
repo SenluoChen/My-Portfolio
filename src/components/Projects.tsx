@@ -5,17 +5,17 @@ import { projects as raw } from "../data/projects";
 const headerWrap: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  gap: 6, // 標題與說明距離更緊湊
-  marginBottom: 18,
+  gap: 10, // 標題與說明距離更緊湊
+  marginBottom: 25,
 };
 
 const title: React.CSSProperties = {
   margin: 0,
   color: "#f1f5f9",
-  fontSize: 28,
-  lineHeight: "36px",
+  fontSize: 40,
+  lineHeight: "48px",
   letterSpacing: -0.2,
-  fontWeight: 800,
+  fontWeight: 900, 
   textAlign: "left",
 };
 
@@ -25,7 +25,7 @@ const subtitle: React.CSSProperties = {
   fontSize: 16,
   lineHeight: "26px",
   textAlign: "left",
-  maxWidth: 820, // 文字長度控制更好讀
+  maxWidth: 820,
 };
 
 const bar: React.CSSProperties = {
@@ -72,12 +72,10 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" aria-label="Projects">
+    <section id="projects" className="section" style={{ scrollMarginTop: 120 }}>
       <div style={headerWrap}>
-        <h2 style={title}>Projects</h2>
-        <p style={subtitle}>
-          Selected work — product-focused builds with clean architecture and measurable impact.
-        </p>
+        <h2 style={{ ...title, scrollMarginTop: 120 }}>Projects</h2>
+        
       </div>
       <hr style={bar} />
 

@@ -2,7 +2,8 @@ import React from "react";
 import { posts as raw, type Post } from "../data/posts";
 import PostCard from "./PostCard";
 import PostModal from "./PostModal";
-import { Section, title as sectionTitle, bar as sectionBar } from "./Section";
+import { Section } from "./Section";
+import "../css/hero.css";
 
 const subtitle: React.CSSProperties = {
   margin: "0 0 24px 0",
@@ -24,12 +25,12 @@ export default function Posts() {
   const [active, setActive] = React.useState<Post | null>(null);
 
   return (
-    <Section id="posts">
-      <h2 style={sectionTitle}>Tech Reflections</h2>
-      <p style={subtitle}>寫下我在工程、產品與效能上的觀察與實戰。</p>
-      <hr style={sectionBar} />
+    <Section id="posts" style={{ scrollMarginTop: 120 }}>
+      <h2 className="hero-title" style={{ scrollMarginTop: 120 }}>Tech Reflections</h2>
+      <p style={subtitle}>Some of my tech notes..</p>
+      <hr className="hero-bar" />
 
-      <div style={grid}>
+      <div style={{ ...grid, maxWidth: 1000, margin: '0 auto' }}>
         {posts.map((p) => (
           <PostCard key={p.id} post={p} onOpen={setActive} />
         ))}

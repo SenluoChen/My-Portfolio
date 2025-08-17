@@ -1,0 +1,108 @@
+/* Navbar CSS */
+
+.navbar-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(148,163,184,0.08);
+  transition: background 240ms ease, backdrop-filter 240ms ease, padding 240ms ease, box-shadow 240ms ease;
+  font-family: 'Space Grotesk','Inter','Noto Sans TC','PingFang TC','Microsoft JhengHei',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  padding: 16px 0;
+  background: #0b1220;
+}
+
+.navbar-wrap.scrolled {
+  padding: 10px 0;
+  background: rgba(10,16,28,0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+}
+
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1100px;     /* 控制最大寬度，可自行調整 */
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;  /* 三欄 */
+  align-items: center;
+}
+
+.navbar-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  justify-self: start;   /* 左對齊 */
+}
+
+.navbar-brand {
+  font-weight: 900;
+  font-size: 21px;
+
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #38bdf8, #06b6d4, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 中間導覽置中 */
+.navbar-nav {
+  display: flex;
+  gap: 18px;             /* 這裡改大一點間距更像 Apple */
+  justify-self: center;  /* 置中 */
+  margin-left: 0;        /* 移除原本推到右邊的 auto */
+  height: 100%;
+}
+
+.navbar-link {
+  position: relative;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  transition: color 160ms ease, background 160ms ease;
+  outline: none;
+  background: transparent;
+}
+
+.navbar-link:hover,
+.navbar-link:focus {
+  color: #e2e8f0;
+  background: rgba(148,163,184,0.08);
+}
+
+.navbar-link:focus {
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.35);
+}
+
+.navbar-link-underline {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,#38bdf8,#0ea5e9);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 180ms ease;
+}
+
+.navbar-link:hover .navbar-link-underline,
+.navbar-link:focus .navbar-link-underline {
+  transform: scaleX(1);
+}
+
+/* 右側空位，預留給搜尋或按鈕 */
+.navbar-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

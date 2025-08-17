@@ -11,25 +11,27 @@ export type Post = {
 export const posts: Post[] = [
   {
     id: "why-typed-apis",
-    title: "為什麼我用 Typed API：從前端 DX 到後端可靠性",
+    title: "How I See the Future of Work",
     date: "2025-08-10",
     tags: ["TypeScript", "API", "DX"],
     excerpt:
       "型別不只是補救錯誤，它影響協作速度、邊界設計與可維護性。我在三個專案裡的實戰筆記。",
     content:
-      `型別的價值常被誤解為“多寫幾個字”。但在多人協作的產品開發中，
-它其實是“溝通介面”的一部分。這篇文章從三個面向談我如何逐步把後端契約前移，
-用 Typed API 提升開發效率與可靠性。
+      `Between Hype and Fear
 
-一、溝通成本：規格先行
-我習慣在需求模糊期先用 Zod/TypeBox 定義資料結構，與 PM/設計師同步，
-這讓我在前端可以先 stub 出 UI，不必等到後端上線。
+When I think about the future of work, I often notice two extremes. Some people predict the end of employment as we know it, while others insist nothing significant will change. Personally, I believe the reality lies somewhere in between. Work is not disappearing, but it is already being reshaped in ways that are easy to overlook.
 
-二、回歸點：錯誤落在 compile-time
-很多 runtime 才發現的錯，提早在編譯時阻擋，PR review 的討論品質也提高。
+From Jobs to Tasks
 
-三、部署後：日誌+型別做為迭代證據
-當資料結構演進時，我用 codemod+型別狀態拆遷移步驟，降低風險。`
+The real shift is happening at the level of tasks. Repetitive duties such as filing, scheduling, or drafting standard documents are increasingly handled by digital tools. What remains for people are the parts that require judgment, creativity, and communication. Jobs are not being erased overnight, but their composition is changing, and with it, the type of value we contribute.
+
+The New Shape of Work
+
+I imagine the workplace of tomorrow as leaner and more project-based. Small teams will be able to achieve what once required whole departments. Careers will become less about fixed titles and more about combining tools, data, and human insight into meaningful outcomes. In this landscape, qualities that no machine can replicate—empathy, trust, strategy, and cross-disciplinary thinking—will become even more vital.
+
+Choosing How to Adapt
+
+For me, the question is not whether work will change, but how we choose to adapt alongside it. If we view new tools only as a threat, we risk falling behind. But if we learn to integrate them into our daily routines—letting them take over what is mechanical while we focus on what is human—then the future of work can become not only more efficient but also more fulfilling.`
   },
   {
     id: "react-performance-notes",
