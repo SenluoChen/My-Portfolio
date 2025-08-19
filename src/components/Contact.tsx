@@ -207,7 +207,8 @@ export default function Contact() {
               }}
             >
               <form
-                onSubmit={onSubmit}
+                action="https://formspree.io/f/mpwlgdgo"
+                method="POST"
                 style={{
                   width: "100%",
                   maxWidth: "100%",

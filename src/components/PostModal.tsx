@@ -16,7 +16,24 @@ export default function PostModal({
     border: "1px solid rgba(148,163,184,0.18)", borderRadius: 16,
     width: "min(920px, 92vw)", maxHeight: "84vh", overflow: "auto",
     boxShadow: "0 24px 60px rgba(0,0,0,0.55)",
+    scrollbarColor: "#2196f3 #0b1220", // for Firefox
+    scrollbarWidth: "thin"
   };
+
+  // 自訂滾動條樣式 for Chrome/Safari/Edge
+  const modalScrollbar = `
+    .post-modal-scroll::-webkit-scrollbar {
+      width: 8px;
+      background: #0b1220;
+    }
+    .post-modal-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #2196f3 0%, #1e40af 100%);
+      border-radius: 8px;
+    }
+    .post-modal-scroll::-webkit-scrollbar-track {
+      background: #0b1220;
+    }
+  `;
   const header: React.CSSProperties = {
     padding: "20px 24px", borderBottom: "1px solid rgba(148,163,184,0.12)",
     position: "sticky", top: 0, background: "#0b1220", zIndex: 1,
@@ -40,16 +57,29 @@ export default function PostModal({
 
   return (
     <div style={overlay} role="dialog" aria-modal="true" aria-label={post.title} onClick={onClose}>
-      <div style={modal} onClick={(e) => e.stopPropagation()}>
+  <style>{modalScrollbar}</style>
+  <div style={modal} className="post-modal-scroll" onClick={(e) => e.stopPropagation()}>
         <div style={header}>
           <h3 style={title}>{post.title}</h3>
           <div style={meta}>{new Date(post.date).toLocaleString()}</div>
           <button style={closeBtn} onClick={onClose} aria-label="Close">Close</button>
         </div>
         <div style={body}>
-          {paragraphs.map((p, i) => (
-            <p key={i} style={paragraph}>{p}</p>
-          ))}
+          {paragraphs.map((p, i) => {
+            if ([
+              "Between Hype and Fear",
+              "From Jobs to Tasks",
+              "The New Shape of Work",
+              "Choosing How to Adapt",
+              "A Shift, Not the End",
+              "The Tough Spot for Juniors",
+              "Why Going Beyond Code Matters",
+              "Looking Ahead"
+            ].includes(p.trim())) {
+              return <div key={i} style={{ fontSize: 22, fontWeight: 900, color: "#f6fbff", margin: "24px 0 14px 0", lineHeight: "28px" }}>{p.trim()}</div>;
+            }
+            return <p key={i} style={paragraph}>{p}</p>;
+          })}
         </div>
       </div>
     </div>

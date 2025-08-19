@@ -15,7 +15,8 @@ export const posts: Post[] = [
     date: "2025-08-10",
     tags: ["TypeScript", "API", "DX"],
     excerpt:
-      "型別不只是補救錯誤，它影響協作速度、邊界設計與可維護性。我在三個專案裡的實戰筆記。",
+      `Between Hype and Fear
+When I think about the future of work, I often notice two extremes...`,
     content:
       `Between Hype and Fear
 
@@ -35,19 +36,28 @@ For me, the question is not whether work will change, but how we choose to adapt
   },
   {
     id: "react-performance-notes",
-    title: "React 效能筆記：從 120ms 到 16ms 的旅程",
+    title: "The Impact of AI on Software Engineering",
     date: "2025-07-30",
     tags: ["React", "Performance"],
     excerpt:
-      "一次表單渲染卡頓的救援：Profiler、分段渲染、避免不必要的 re-render。",
+      `A Shift, Not the End
+
+AI is already changing how we code. Routine work like writing boilerplate or fixing small bugs is now handled much faster by tools. That doesn’t mean engineers are disappearing...`,
     content:
-      `我們的管理介面在表單切換時會卡住。我用 React Profiler 發現是 context 改變
-導致的大量無關 re-render。調整策略如下：
+      `A Shift, Not the End
 
-1) 切分 Context：把高頻變動的 state 下放更靠近使用者的 component。
-2) memo + useCallback：只在必要時穩定參考。
-3) skeleton + 分段渲染：先出可見區，再載入次要欄位。
+AI is already changing how we code. Routine work like writing boilerplate or fixing small bugs is now handled much faster by tools. That doesn’t mean engineers are disappearing. It means the role is moving toward guiding AI, reviewing its output, and solving the complex problems that actually drive value.
 
-最後首屏互動時間從 120ms 降到 16ms，用戶的體感差非常多。`
+The Tough Spot for Juniors
+
+The first people to feel the pressure are newcomers. Entry-level coding tasks, the ones that used to teach you the basics, are now automated. This makes the path into the field steeper. It doesn’t shut the door, but it does raise the expectation that you bring something more than just syntax knowledge.
+
+Why Going Beyond Code Matters
+
+Software development is no longer just about code. The engineers who stand out will be those who combine AI skills with expertise in other areas like finance, biotech, healthcare, or energy. When you understand an industry and use AI as a tool inside it, you bring unique value that a model on its own cannot.
+
+Looking Ahead
+
+The future of this profession isn’t about fighting AI. It’s about learning how to work with it, letting it take the repetitive parts so we can focus on creativity, strategy, and building meaningful solutions. The engineers who embrace this shift and go beyond pure coding will be the ones shaping the future.`
   }
 ];
