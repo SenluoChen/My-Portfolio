@@ -24,3 +24,12 @@
   letter-spacing: 0.1px;
   overflow-x: hidden;
 }
+
+html {
+  scroll-behavior: smooth;       /* 點擊錨點時平滑滾動 */
+  scroll-padding-top: 72px;      /* 換成你的 Navbar 高度 (px) */
+}
+
+section[id] {
+  scroll-margin-top: 72px;       /* 讓有 id 的區塊往下偏移，避免被 Navbar 蓋住 */
+}
